@@ -22,7 +22,7 @@ from sqlalchemy import Column, String, UnicodeText, Integer, Boolean
 from haruka.modules.sql import SESSION, BASE
 
 
-class Federations(BASE):
+class FEDS(BASE):
     __tablename__ = "feds"
     owner_id = Column(String(14))
     fed_name = Column(UnicodeText)
@@ -36,7 +36,7 @@ class Federations(BASE):
         self.fed_users = fed_users
 
 
-class ChatF(BASE):
+class FEDS_CHAT(BASE):
     __tablename__ = "chat_feds"
     chat_id = Column(String(14), primary_key=True)
     fed_id = Column(UnicodeText)
@@ -46,7 +46,7 @@ class ChatF(BASE):
         self.fed_id = fed_id
 
 
-class BansF(BASE):
+class FEDS_BAN(BASE):
     __tablename__ = "bans_feds"
     fed_id = Column(UnicodeText, primary_key=True)
     user_id = Column(String(14), primary_key=True)
@@ -65,7 +65,7 @@ class BansF(BASE):
         self.reason = reason
 
 
-class FedsUserSettings(BASE):
+class FEDS_LOG(BASE):
     __tablename__ = "feds_settings"
     user_id = Column(Integer, primary_key=True)
     should_report = Column(Boolean, default=True)
@@ -78,14 +78,14 @@ class FedsUserSettings(BASE):
 
 
 # Dropping db
-# Federations.__table__.drop()
-# ChatF.__table__.drop()
-# BansF.__table__.drop()
+# FEDS.__table__.drop()
+# FEDS_CHAT.__table__.drop()
+# FEDS_BAN.__table__.drop()
 
-Federations.__table__.create(checkfirst=True)
-ChatF.__table__.create(checkfirst=True)
-BansF.__table__.create(checkfirst=True)
-FedsUserSettings.__table__.create(checkfirst=True)
+FEDS.__table__.create(checkfirst=True)
+FEDS_CHAT.__table__.create(checkfirst=True)
+FEDS_BAN.__table__.create(checkfirst=True)
+FEDS_LOG.__table__.create(checkfirst=True)
 
 FEDS_LOCK = threading.RLock()
 FEDS_SETTINGS_LOCK = threading.RLock()
@@ -121,7 +121,7 @@ def get_fed_id(chat_id):
 def new_fed(owner_id, fed_name, fed_id):
     with FEDS_LOCK:
         global FEDERATION_BYOWNER, FEDERATION_BYFEDID, FEDERATION_BYNAME
-        fed = Federations(str(owner_id), fed_name, str(fed_id),
+        fed = FEDS(str(owner_id), fed_name, str(fed_id),
                           str({
                               'owner': str(owner_id),
                               'members': '[]'
@@ -180,7 +180,7 @@ def del_fed(fed_id):
         FEDERATION_BYNAME.pop(fed_name)
         if FEDERATION_CHATS_BYID.get(fed_id):
             for x in FEDERATION_CHATS_BYID[fed_id]:
-                delchats = SESSION.query(ChatF).get(str(x))
+                delchats = SESSION.query(FEDS_CHAT).get(str(x))
                 if delchats:
                     SESSION.delete(delchats)
                     SESSION.commit()
@@ -190,14 +190,14 @@ def del_fed(fed_id):
         getall = FEDERATION_BANNED_USERID.get(fed_id)
         if getall:
             for x in getall:
-                banlist = SESSION.query(BansF).get((fed_id, str(x)))
+                banlist = SESSION.query(FEDS_BAN).get((fed_id, str(x)))
                 if banlist:
                     SESSION.delete(banlist)
                     SESSION.commit()
         FEDERATION_BANNED_USERID.pop(fed_id)
         FEDERATION_BANNED_FULL.pop(fed_id)
         # Delete from database
-        curr = SESSION.query(Federations).get(fed_id)
+        curr = SESSION.query(FEDS).get(fed_id)
         if curr:
             SESSION.delete(curr)
             SESSION.commit()
@@ -207,7 +207,7 @@ def del_fed(fed_id):
 def chat_join_fed(fed_id, chat_id):
     with FEDS_LOCK:
         global FEDERATION_CHATS, FEDERATION_CHATS_BYID
-        r = ChatF(chat_id, fed_id)
+        r = FEDS_CHAT(chat_id, fed_id)
         SESSION.add(r)
         FEDERATION_CHATS[str(chat_id)] = {'fid': fed_id}
         checkid = FEDERATION_CHATS_BYID.get(fed_id)
@@ -265,7 +265,7 @@ def user_demote_fed(fed_id, user_id):
             'members': str(members)
         })
         # Set on database
-        fed = Federations(
+        fed = FEDS(
             str(owner_id), fed_name, str(fed_id),
             str({
                 'owner': str(owner_id),
@@ -302,7 +302,7 @@ def user_join_fed(fed_id, user_id):
             'members': str(members)
         })
         # Set on database
-        fed = Federations(
+        fed = FEDS(
             str(owner_id), fed_name, str(fed_id),
             str({
                 'owner': str(owner_id),
@@ -326,7 +326,7 @@ def chat_leave_fed(chat_id):
         FEDERATION_CHATS.pop(str(chat_id))
         FEDERATION_CHATS_BYID[str(fed_id)].remove(str(chat_id))
         # Delete from db
-        curr = SESSION.query(ChatF).all()
+        curr = SESSION.query(FEDS_CHAT).all()
         for U in curr:
             if int(U.chat_id) == int(chat_id):
                 SESSION.delete(U)
@@ -363,13 +363,13 @@ def all_fed_members(fed_id):
 
 def fban_user(fed_id, user_id, first_name, last_name, user_name, reason):
     with FEDS_LOCK:
-        r = SESSION.query(BansF).all()
+        r = SESSION.query(FEDS_BAN).all()
         for I in r:
             if I.fed_id == fed_id:
                 if int(I.user_id) == int(user_id):
                     SESSION.delete(I)
 
-        r = BansF(str(fed_id), str(user_id), first_name, last_name, user_name,
+        r = FEDS_BAN(str(fed_id), str(user_id), first_name, last_name, user_name,
                   reason)
 
         SESSION.add(r)
@@ -386,7 +386,7 @@ def fban_user(fed_id, user_id, first_name, last_name, user_name, reason):
 
 def un_fban_user(fed_id, user_id):
     with FEDS_LOCK:
-        r = SESSION.query(BansF).all()
+        r = SESSION.query(FEDS_BAN).all()
         for I in r:
             if I.fed_id == fed_id:
                 if int(I.user_id) == int(user_id):
@@ -407,7 +407,7 @@ def get_fban_user(fed_id, user_id):
     if list_fbanned == None:
         FEDERATION_BANNED_USERID[fed_id] = []
     if user_id in FEDERATION_BANNED_USERID[fed_id]:
-        r = SESSION.query(BansF).all()
+        r = SESSION.query(FEDS_BAN).all()
         reason = None
         for I in r:
             if I.fed_id == fed_id:
@@ -473,9 +473,9 @@ def user_feds_report(user_id: int) -> bool:
 def set_feds_setting(user_id: int, setting: bool):
     with FEDS_SETTINGS_LOCK:
         global FEDERATION_NOTIFICATION
-        user_setting = SESSION.query(FedsUserSettings).get(user_id)
+        user_setting = SESSION.query(FEDS_LOG).get(user_id)
         if not user_setting:
-            user_setting = FedsUserSettings(user_id)
+            user_setting = FEDS_LOG(user_id)
 
         user_setting.should_report = setting
         FEDERATION_NOTIFICATION[str(user_id)] = setting
@@ -486,7 +486,7 @@ def set_feds_setting(user_id: int, setting: bool):
 def __load_all_feds():
     global FEDERATION_BYOWNER, FEDERATION_BYFEDID, FEDERATION_BYNAME
     try:
-        feds = SESSION.query(Federations).all()
+        feds = SESSION.query(FEDS).all()
         for x in feds:  # remove tuple by ( ,)
             # Fed by Owner
             check = FEDERATION_BYOWNER.get(x.owner_id)
@@ -522,7 +522,7 @@ def __load_all_feds():
 def __load_all_feds_chats():
     global FEDERATION_CHATS, FEDERATION_CHATS_BYID
     try:
-        qall = SESSION.query(ChatF).all()
+        qall = SESSION.query(FEDS_CHAT).all()
         FEDERATION_CHATS = {}
         FEDERATION_CHATS_BYID = {}
         for x in qall:
@@ -545,7 +545,7 @@ def __load_all_feds_banned():
     try:
         FEDERATION_BANNED_USERID = {}
         FEDERATION_BANNED_FULL = {}
-        qall = SESSION.query(BansF).all()
+        qall = SESSION.query(FEDS_BAN).all()
         for x in qall:
             check = FEDERATION_BANNED_USERID.get(x.fed_id)
             if check == None:
@@ -568,7 +568,7 @@ def __load_all_feds_banned():
 def __load_all_feds_settings():
     global FEDERATION_NOTIFICATION
     try:
-        getuser = SESSION.query(FedsUserSettings).all()
+        getuser = SESSION.query(FEDS_LOG).all()
         for x in getuser:
             FEDERATION_NOTIFICATION[str(x.user_id)] = x.should_report
     finally:
