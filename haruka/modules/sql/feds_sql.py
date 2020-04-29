@@ -27,14 +27,12 @@ class Federations(BASE):
     owner_id = Column(String(14))
     fed_name = Column(UnicodeText)
     fed_id = Column(UnicodeText, primary_key=True)
-    fed_rules = Column(UnicodeText)
     fed_users = Column(UnicodeText)
 
-    def __init__(self, owner_id, fed_name, fed_id, fed_rules, fed_users):
+    def __init__(self, owner_id, fed_name, fed_id, fed_users):
         self.owner_id = owner_id
         self.fed_name = fed_name
         self.fed_id = fed_id
-        self.fed_rules = fed_rules
         self.fed_users = fed_users
 
 
@@ -90,7 +88,6 @@ BansF.__table__.create(checkfirst=True)
 FedsUserSettings.__table__.create(checkfirst=True)
 
 FEDS_LOCK = threading.RLock()
-CHAT_FEDS_LOCK = threading.RLock()
 FEDS_SETTINGS_LOCK = threading.RLock()
 
 FEDERATION_BYNAME = {}
@@ -125,7 +122,6 @@ def new_fed(owner_id, fed_name, fed_id):
     with FEDS_LOCK:
         global FEDERATION_BYOWNER, FEDERATION_BYFEDID, FEDERATION_BYNAME
         fed = Federations(str(owner_id), fed_name, str(fed_id),
-                          'Rules is not set in this federation.',
                           str({
                               'owner': str(owner_id),
                               'members': '[]'
@@ -137,8 +133,6 @@ def new_fed(owner_id, fed_name, fed_id):
             str(fed_id),
             'fname':
             fed_name,
-            'frules':
-            'Rules is not set in this federation.',
             'fusers':
             str({
                 'owner': str(owner_id),
@@ -150,8 +144,6 @@ def new_fed(owner_id, fed_name, fed_id):
             str(owner_id),
             'fname':
             fed_name,
-            'frules':
-            'Rules is not set in this federation.',
             'fusers':
             str({
                 'owner': str(owner_id),
@@ -163,8 +155,6 @@ def new_fed(owner_id, fed_name, fed_id):
             str(fed_id),
             'owner':
             str(owner_id),
-            'frules':
-            'Rules is not set in this federation.',
             'fusers':
             str({
                 'owner': str(owner_id),
@@ -253,7 +243,6 @@ def user_demote_fed(fed_id, user_id):
         getfed = FEDERATION_BYFEDID.get(str(fed_id))
         owner_id = getfed['owner']
         fed_name = getfed['fname']
-        fed_rules = getfed['frules']
         # Temp set
         try:
             members = eval(eval(getfed['fusers'])['members'])
@@ -277,7 +266,7 @@ def user_demote_fed(fed_id, user_id):
         })
         # Set on database
         fed = Federations(
-            str(owner_id), fed_name, str(fed_id), fed_rules,
+            str(owner_id), fed_name, str(fed_id),
             str({
                 'owner': str(owner_id),
                 'members': str(members)
@@ -294,7 +283,6 @@ def user_join_fed(fed_id, user_id):
         getfed = FEDERATION_BYFEDID.get(str(fed_id))
         owner_id = getfed['owner']
         fed_name = getfed['fname']
-        fed_rules = getfed['frules']
         # Temp set
         members = eval(eval(getfed['fusers'])['members'])
         members.append(user_id)
@@ -315,7 +303,7 @@ def user_join_fed(fed_id, user_id):
         })
         # Set on database
         fed = Federations(
-            str(owner_id), fed_name, str(fed_id), fed_rules,
+            str(owner_id), fed_name, str(fed_id),
             str({
                 'owner': str(owner_id),
                 'members': str(members)
@@ -371,33 +359,6 @@ def all_fed_members(fed_id):
         getfed = FEDERATION_BYFEDID.get(str(fed_id))
         fed_admins = eval(eval(getfed['fusers'])['members'])
         return fed_admins
-
-
-def set_frules(fed_id, rules):
-    with FEDS_LOCK:
-        global FEDERATION_BYOWNER, FEDERATION_BYFEDID, FEDERATION_BYNAME
-        # Variables
-        getfed = FEDERATION_BYFEDID.get(str(fed_id))
-        owner_id = getfed['owner']
-        fed_name = getfed['fname']
-        fed_members = getfed['fusers']
-        fed_rules = str(rules)
-        # Set user
-        FEDERATION_BYOWNER[str(owner_id)]['frules'] = fed_rules
-        FEDERATION_BYFEDID[str(fed_id)]['frules'] = fed_rules
-        FEDERATION_BYNAME[fed_name]['frules'] = fed_rules
-        # Set on database
-        fed = Federations(str(owner_id), fed_name, str(fed_id), fed_rules,
-                          str(fed_members))
-        SESSION.merge(fed)
-        SESSION.commit()
-        return True
-
-
-def get_frules(fed_id):
-    with FEDS_LOCK:
-        rules = FEDERATION_BYFEDID[str(fed_id)]['frules']
-        return rules
 
 
 def fban_user(fed_id, user_id, first_name, last_name, user_name, reason):
@@ -534,7 +495,6 @@ def __load_all_feds():
             FEDERATION_BYOWNER[str(x.owner_id)] = {
                 'fid': str(x.fed_id),
                 'fname': x.fed_name,
-                'frules': x.fed_rules,
                 'fusers': str(x.fed_users)
             }
             # Fed By FedId
@@ -544,7 +504,6 @@ def __load_all_feds():
             FEDERATION_BYFEDID[str(x.fed_id)] = {
                 'owner': str(x.owner_id),
                 'fname': x.fed_name,
-                'frules': x.fed_rules,
                 'fusers': str(x.fed_users)
             }
             # Fed By Name
@@ -554,7 +513,6 @@ def __load_all_feds():
             FEDERATION_BYNAME[x.fed_name] = {
                 'fid': str(x.fed_id),
                 'owner': str(x.owner_id),
-                'frules': x.fed_rules,
                 'fusers': str(x.fed_users)
             }
     finally:
