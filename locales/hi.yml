@@ -1,59 +1,52 @@
----
 #Main
 send-help: |
-  नमस्कार! मेरा नाम *{}* हे. मैं एक मॉड्यूलर ग्रुप मैनेजमेंट बॉट हूं और में कुछ मजेदार अतिरिक्त के साथ हूं! एक नज़र ईऩ चीजो पें डाले जो आपको विचार देगा मैं क्या सहाय्ता कर सक्ता हूंं. \n
-  मुख्य आदेश जो उपलब्ध हैं
-  - /start: हरुका जिंदा है या नहीं 
-  - /help: इनबॉक्स में संदेश भेजती है
-  - /help <मोड्यूल का नाम>: मोढ्युल के बारे में इनबॉक्स करेगी
-  - /donate: जानकारी कैसे दान करें
-  - /lang: बॉट का भाषा परिवर्तन करे
-  - /settings: 
-  - पीएम में: सभी समर्थित मॉड्यूल के लिए आपको अपनी सेटिंग्स भेजेगी.
-  - एक ग्रुप में: चैट की सेटिंग के साथ, आपको पीएम पर रीडायरेक्ट करेगा.{}
-cmd_multitrigger: \nसभी आदेशों का उपयोग या तो `/` या `!` के साथ किया जा सकता है।.
-here_is_help: यहाँ *{}* मॉड्यूल के लिए कुछ मदद दी गई है:\n\n{}
-help_not_found: <कोड>{}</कोड> नहीं मिला!
-help_pm_only: संभावित आदेशों की सूची प्राप्त करने के लिए पीएम से संपर्क करें।
-btn_help: 'संभावित आदेशों की सूची प्राप्त करने के लिए मुझे निजी संदेश में संपर्क करें।'
-btn_go_back: '⬅️ वापस जाओ'
-main_start_group: सुनो! मैं जिंदा हूं
+  Hey! My name is *{}*. I am your wife and your group management bot, here to help you get around and keep the order in your groups!
+  I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.\n
+  *Helpful commands:*
+  - /start: Starts me! You've probably already used this.
+  - /help: Sends this message; I'll tell you more about myself!
+  - /help <module name>: PM's you info about the specific module.
+  - /lang: Change bot language{}
+cmd_multitrigger: "\n\nAll commands can be used with the following: `/` `!`"
+here_is_help: Here is some help for the *{}* module:\n\n{}
+help_not_found: Help string for <code>{}</code> not found!
+help_pm_only: Contact me in PM to get the list of possible commands.
+btn_help: '❔ Help'
+btn_go_back: Back
+main_start_group: Hey there! I'm alive :3
+
 main_start_pm: |
-  सुनो! मेरा नाम Haruka Aya है - मैं यहां आपके ग्रुप का प्रबंधन करने में आपकी सहायता करने के लिए हूं!
-  मेरी पूर्ण क्षमता का उपयोग करने के तरीके के बारे में अधिक जानने के लिए मदद बटन पर क्लिक करें।
+  Hey there! My name is Endorsi Zahard - I'm here to be your wife and help you manage your groups!
+  Click Help button to find out more about how to use me to my full 
 
-  [बॉट सपोर्ट ग्रुप] (https://t.me/HarukaAyaGroup) ( @HarukaAyaGroup ) से जुड़ें अगर आपको किसी बॉट सपोर्ट या मदद की ज़रूरत है। केवल बॉट सहायता की आवश्यकता होने पर शामिल हों।
+  Made with love by @katarina_claes\n\nWant to add me to your group? [Click here!](t.me/EndorsiBot?startgroup=true)
 
-  यदि आप बॉट समाचार, बॉट अपडेट और बॉट डाउनटाइम के बारे में जानना चाहते हैं तो [Haruka Aya] (https://t.me/HarukaAya)( @HarukaAya ) से जुड़ें!
-
-  @RealAkito द्वारा प्यार के साथ बनाया गया\n\nमुझे अपने समूह में जोड़ना चाहते हैं? [यहां क्लिक करें!](t.me/HarukaAyaBot?startgroup=true)
-main_start_btn_support: '📢 सहायता ग्रुप'
-main_start_btn_ctrlpnl: '🛠️ नियंत्रण कक्ष'
-main_start_btn_lang: '🇮🇳 भाषा'
+main_start_btn_support: '📢 Support'
+main_start_btn_ctrlpnl: '🛠 Control panel'
+main_start_btn_lang: '📒 Github'
 #Common
-common_err_no_admin: आप एक व्यवस्थापक नहीं हैं!
-common_err_no_user: आप किसी उपयोगकर्ता का संदर्भ नहीं दे रहे हैं।
-common_err_invalid_chatid: अमान्य चैट आईडी!
-common_yes: "हाँ"
-common_no: "नहीं"
-common_cmd_group_only: यह कमांड केवल एक ग्रुपमें उपयोग किया जा सकता है, पीएम में नहीं।
-common_cmd_pm_only: यह कमांड केवल एक निजी संदेश में इस्तेमाल किया जा सकता है, ग्रुप में नहीं।
-common_group_creator_only: केवल ग्रुप निर्माता ही इस कमांड का उपयोग कर सकता है!
-common_this_chat: यह चैट
-common_invalid_arg: अवैध तर्क! कृपया `on`/`Yes` या `off`/`no` टाइप करें!
+common_err_no_admin: You aren't an admin!
+common_err_no_user: You don't seem to be referring to a user.
+common_err_invalid_chatid: Invalid Chat ID!
+common_yes: "Yes"
+common_no: "No"
+common_cmd_group_only: This command can only be used in a group, not PM. Try connecting to a group!
+common_cmd_pm_only: This command can only be used in PM, not a group.
+common_group_creator_only: Only the group creator can use this command!
+common_this_chat: This chat
+common_invalid_arg: Invalid argument! Please type `on`/`yes` or `off`/`no`!
 #Admins
-modname_admin: व्यवस्थापक
-admin_err_no_perm: मैं यहां लोगों को बढ़ावा/अवनति नही दे सक्ती हुं! सुनिश्चित करें कि मैं एक व्यवस्थापक हूं और नए व्यवस्थापक को बढ़ावा दे सकती हूं।
-admin_err_user_admin: मैं किसी ऐसे व्यक्ति को कैसे बढ़ावा दे सकता हूं जो पहले से ही एक व्यवस्थापक है?
-admin_err_self_promote: मैं खुद को बढ़ावा नहीं दे सकती! मेरे लिए एक व्यवस्थापक से‌ करवायें
-admin_promote_success: व्यवस्थापक {} सफलतापूर्वक बढ़ावा देदीया {} में <b>{} </b>!
-admin_err_demote_creator: यह व्यक्ति चैट का निर्माता है, मैं उन्हें कैसे अवनति कर सकता हूं?
-admin_err_demote_noadmin: जिन लोगों को बढ़ावा नहीं दिया गया था, उन्हें पदावनत नहीं कर सकते!
-admin_err_self_demote: मैं खुद को अवनत नहीं कर सकता!
-admin_demote_success: व्यवस्थापन {} सफलतापूर्वक निरस्त कर दिया हैं {} में <b>{}</b>!
+modname_admin: Admin
+admin_err_no_perm: I can't promote/demote people here! Make sure I'm an admin and can appoint new admins.
+admin_err_user_admin: How am I meant to promote someone who's already an admin?
+admin_err_self_promote: I can't promote myself! Get an admin to do it for me.
+admin_promote_success: Admin {} has successfully promoted {} in <b>{}</b>!
+admin_err_demote_creator: This person is the CREATOR of the chat, how would I demote them?
+admin_err_demote_noadmin: Can't demote those who weren't promoted!
+admin_err_self_demote: I can't demote myself!
+admin_demote_success: Admin {} has successfully demoted {} in <b>{}</b>!
 admin_err_cant_demote: Could not demote. I might not be admin, or the admin status was appointed by another user, so I can't act upon them!
 admin_list: "Admins in *{}*:"
-admin_list_creator: (Creator)
 admin_err_no_perm_invitelink: I don't have access to the invite link, try changing my permissions!
 admin_err_chat_no_invitelink: Sorry, but I can only give invite links for supergroups and channels!
 admin_disable_reaction: Disabled response to user-triggered admin commands.
@@ -70,55 +63,50 @@ admin_help: |
   - /demote: Demotes a user. Reply to the user or use their username.
 #AFK
 modname_afk: AFK
-user_now_afk: "{} is now AFK!"
-user_no_longer_afk: "{} is no longer AFK!"
-status_afk_noreason: "{} is AFK!"
-status_afk_reason: "{} is AFK! Says it's because of:\n{}"
+user_now_afk: "User {} is now AFK!"
+user_no_longer_afk: "User {} is no longer AFK!"
+status_afk_noreason: "User {} is AFK!"
+status_afk_reason: "User {} is AFK! Says it's because of:\n{}"
 afk_help: |
   - /afk <reason>: Mark yourself as AFK.
   - brb <reason>: Same as the afk command, but not a command.\n
   When marked as AFK, any mentions will be replied to with a message stating that you're not available!
 #Android
 modname_android: Android
-download: "* डाउनलोड:* [{}]({})"
-build_size: "* बिल्ड का आकार:* `{}`"
-build_date: "* निर्माण की तारीख:* `{}`"
-version: "* संस्करण:* `{}`"
-android_version: "* एंड्रॉयड संस्करण:* `{}`"
-rom_type: "* रोम का प्रकार:* `{}`\n"
-maintainer: "* मेंटेनर:* {}\n"
-xda_thread: "* XDA लिंक:* [यहाँ]({})\n"
-changelog: "*Device Changelog:* `{}`\n"
-weekly: "* साप्ताहिक*\n"
-miui_release: "* रिकवरी रॉम*\n\n* स्थिर*\n"
-cust_releases: "*{} नई रिलीज*\n"
-err_not_found: आपके प्रश्न से मेल खाते कोई परिणाम नहीं मिल सके।
-err_api: API तक नहीं पहुंच सका।
+download: "**Download:** [{}]({})\n"
+build_size: "**Build Size:** `{}`\n"
+build_date: "**Build Date:** `{}`\n"
+version: "**Version:** `{}`\n"
+android_version: "**Android Version:** `{}`\n"
+rom_type: "**ROM Type:** `{}`\n"
+maintainer: "**Maintainer:** {}\n"
+xda_thread: "**XDA Thread:** [Here]({})\n"
+changelog: "**Device Changelog:** `{}`\n"
+weekly: "**Weekly**\n"
+phh_releases: "**Phh's latest GSI release(s)**\n"
+err_not_found: Couldn't find any results matching your query.
+err_api: Couldn't reach the API.
 err_example_device: Why are you trying to get the example device?
 err_json: Tell the rom maintainer to fix their OTA json. I'm sure this won't work with OTA and it won't work with this bot too :P
 btn_dl: Click here to Download
 cmd_example: Please type your device **codename**!\nFor example, `/{} tissot`
-evox_gsi: Please check Evolution X Updates channel(@EvolutionXUpdates) or click the button down below to download the GSIs!
-aex_cust_str: Please type your device **codename** and **Android Version**!\nFor example, `/aex tissot pie`
 android_help: |
   *Device Specific ROM for a device*
-  - /havoc <device>: Get the latest Havoc ROM for a device
-  - /posp <device>: Get the latest POSP ROM for a device
   - /evo <device>: Get the latest Evolution X ROM for a device
-  - /aex <device> <android version>: Get the latest AEX ROM for a device
   - /los <device>: Get the latest LineageOS ROM for a device
-  - /bootleggers <device>: Get the latest Bootleggers ROM for a device
-
+  - /bootleggers <device>: Get the latest Bootleggers ROM for a device\n
   *GSI*
-  - /phh: Get the latest Phh AOSP Oreo GSI!
+  - /phh: Get the latest Phh AOSP GSI!
+  *Misc*
+  - /magisk: Get latest Magisk releases
 #Antiflood
 modname_antiflood: Antiflood
 flood_mute: I would like to leave the flooding to natural disasters. But you, you were just a disappointment. *Muted*!
 flood_err_no_perm: I can't mute people here, give me permissions first! Until then, I'll disable antiflood.
-flood_logger_success: "<b>{}:</b>\n#MUTED\n<b>User:</b> {}\nFlooded the group."
-flood_logger_fail: "<b>{}:</b>\n#INFO\nNo mute permissions! Antiflood disabled"
-flood_logger_set_off: "<b>{}:</b>\n#SETFLOOD\n<b>Admin:</b> {}\nDisabled antiflood."
-flood_logger_set_on: "<b>{}:</b>\n#SETFLOOD\n<b>Admin:</b> {}\nSet antiflood to <code>{}</code>."
+flood_logger_success: '<b>{}:</b>\n#MUTED\n<b>User:</b> {}\nFlooded the group.'
+flood_logger_fail: '<b>{}:</b>\n#INFO\nNo mute permissions! Antiflood disabled'
+flood_logger_set_off: '<b>{}:</b>\n#SETFLOOD\n<b>Admin:</b> {}\nDisabled antiflood.'
+flood_logger_set_on: '<b>{}:</b>\n#SETFLOOD\n<b>Admin:</b> {}\nSet antiflood to <code>{}</code>.'
 flood_set: Antiflood has been updated and set to {}
 flood_set_off: Antiflood has been disabled.
 flood_status_off: I'm not currently enforcing flood control!
@@ -132,7 +120,7 @@ antiflood_help: |
   - /flood: gets the current antiflood settings.
   - /setflood <number/off>: sets the number of messages at which to take action on a user.
 #Antispam
-modname_antispam: Antispam Security
+modname_antispam: Antispam
 antispam_err_usr_sudo: I spy with my little eyes... a sudo user war! Why are you guys turning on each other?
 antispam_err_usr_support: OOOH, someone's trying to gban a support user! *grabs popcorn*
 antispam_err_usr_bot: '-_- So funny, let me gban myself, why don''t I? Nice try.'
@@ -140,21 +128,34 @@ antispam_err_not_usr: That's not a user!
 antispam_err_usr_deleted: That's a deleted account! Why even bother gbanning them?
 antispam_err_no_new_reason: This user is already gbanned; I'd change the reason, but you haven't given me one...
 antispam_logger_update_gban: |
-  <b>New Reason of Global Ban</b>\n
-  <b>Sudo Admin:</b> {}\n
-  <b>User:</b> {}\n
-  <b>ID:</b> <code>{}</code>\n
-  <b>Previous Reason:</b> {}\n
+  <b>New Reason of Global Ban</b>
+  <b>Sudo Admin:</b> {}
+  <b>User:</b> {}
+  <b>ID:</b> <code>{}</code>
+  <b>Previous Reason:</b> {}
   <b>New Reason:</b> {}
 antispam_reason_updated: "This user has already been gbanned. I have updated the reason.\nPrevious reason: <code>{}</code>\nNew reason: <code>{}</code>"
-antispam_new_gban: Global Banning {} with the id <code>{}</code>...
-antispam_logger_new_gban: "{} is gbanning user {} with the id <code>{}</code> with the following reason: <code>{}</code>."
+antispam_new_gban: |
+  <b>Initializing Global Ban</b>
+  <b>User:</b> {}
+  <b>ID:</b> <code>{}</code>
+  <b>Reason:</b> {}
+antispam_logger_new_gban: |
+  <b>Global Ban</b>
+  <b>Sudo Admin:</b> {}
+  <b>User:</b> {} 
+  <b>ID:</b> <code>{}</code>
+  <b>Reason:</b> {}
 antispam_no_reason: No reason given
 antispam_user_not_gbanned: This user is not gbanned!
 antispam_ungbanned: I'll give {} a second chance, globally.
-antispam_logger_ungban: "{} has ungbanned user {}."
+antispam_logger_ungban: |
+  <b>Global Ban Removal</b>
+  <b>Sudo Admin:</b> {}
+  <b>User:</b> {}
+  <b>ID:</b> <code>{}</code>
+  <b>Reason:</b> {}
 antispam_err_ungban: "Could not ungban due to: {}"
-antispam_ungban_success: Ungbanned successfully!
 antispam_checkban_user_removed: "*This user is gbanned and has been removed.*\nReason: `{}`"
 antispam_on: I've enabled antispam security in this group. This will help to protect you from spammers, unsavoury characters, and the biggest trolls.
 antispam_off: I've disabled antispam security in this group. GBans won't affect your users anymore. You'll be less protected from any trolls and spammers though!
@@ -182,18 +183,18 @@ bans_banned_success: Admin {} has successfully banned {} in <b>{}</b>!
 bans_logger_reason: \n<b>Reason:</b> {}
 bans_err_unknown: "Unknown error: {} failed."
 bans_err_tban_no_arg: You haven't specified a time to ban this user for!
-bans_tban_logger: "<b>{}:</b>\n#TEMP_BANNED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)\n<b>Time:</b> {}"
+bans_tban_logger: '<b>{}:</b>\n#TEMP_BANNED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)\n<b>Time:</b> {}'
 bans_tbanned_success: Admin {} has successfully banned {} in <b>{}</b> for {}!
 bans_kick_is_bot: I'm not kicking myself!
 bans_kick_is_admin: Why would I kick an admin? That sounds like a pretty dumb idea.
 bans_kick_success: Admin {} has successfully kicked {} in <b>{}</b>!
-bans_kick_logger: "<b>{}:</b>\n#KICKED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)"
+bans_kick_logger: '<b>{}:</b>\n#KICKED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)'
 bans_kickme_success: No problem.
-bans_kickme_failed:
+bans_kickme_failed: I cannot kick you! You're lucky today.
 bans_unban_user_in_chat: Why are you trying to unban someone that's already in the chat?
 bans_unban_success: Yep, this user can join!
-bans_unban_logger: "<b>{}:</b>\n#UNBANNED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)"
-bans_sban_logger: "<b>{}:</b>\n#UNBANNED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)"
+bans_unban_logger: '<b>{}:</b>\n#UNBANNED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)'
+bans_sban_logger: '<b>{}:</b>\n#UNBANNED\n<b>Admin:</b> {}\n<b>User:</b> {} (<code>{}</code>)'
 bans_help: |
   Some people need to be publicly banned; spammers, annoyances, or just trolls.\n
   This module allows you to do that easily, by exposing some common actions, so everyone will see!\n
@@ -212,7 +213,7 @@ bans_help: |
   An example of temporarily muting someone:
   /tmute @username 2h; this mutes a user for 2 hours.
 #Blacklist
-modname_blacklist: Word Blacklists
+modname_blacklist: Blacklists
 blacklist_active_list: Blacklist filters active in {}:\n
 blacklist_no_list: There are no blacklist filters in <b>{}</b>!
 blacklist_add: Added <code>{}</code> to the blacklist in <b>{}</b>!
@@ -225,21 +226,20 @@ blacklist_err_multidel_no_trigger: None of those triggers existed, so nothing wa
 blacklist_err_multidel_some_no_trigger: Removed <code>{}</code> triggers from the blacklist in <b>{}</b>! {} did not exist, so were not removed.
 blacklist_chatsettings_word_count: There are {} blacklisted words.
 blacklist_help: |
-  You can set blacklist filters to take automatic action on people when they say certain things. This is done using:
+  You can set blacklist filters to take automatic action on people when they say certain things. This is done using:\n
   - /addblacklist <blacklist trigger> <blacklist reason>: blacklists the trigger. You can set sentences by putting quotes around the reason.
   - /unblacklist <blacklist trigger>: stop blacklisting a certain blacklist trigger.
   - /rmblacklist <blacklist trigger>: same as /unblacklist
-  - /blacklist: list all active blacklist filters\n
+  - /blacklist: list all active blacklist filters
+  - /geturl: View the current blacklisted urls
+  - /addurl <urls>: Add a domain to the blacklist. The bot will automatically parse the url.
+  - /delurl <urls>: Remove urls from the blacklist.\n
+  Example:
   /addblacklist "the admins suck" Respect your admins!
   This would delete any message containing 'the admins suck'.\n
-  Pro tip:
-  Blacklists allow you to use some modifiers to match "unknown" characters. For example, you can use the ? character to match a single occurence of any non-whitespace character.
-  You could also use the * modifier, which matches any number of any character. If you want to blacklist urls, this will allow you to match the full thing. It matches every character except spaces. This is cool if you want to stop, for example, url shorteners.
-  For example, the following will ban any bit.ly link:
-  /addblacklist "bit.ly/*" We dont like shorteners!
-  If you want to only match bit.ly/ links followed by three characters, you could use:
-  /addblacklist "bit.ly/???" We dont like shorteners!
-  This would match bit.ly/abc, but not bit.ly/abcd.
+  /addurl bit.ly
+  This would delete any message containing url "bit.ly".
+
 #Connections
 modname_connection: Connections
 connection_enable: Enabled connections to this chat for users.
@@ -300,7 +300,7 @@ cust_filters_help: |
   `/filter word`, while replying to a sticker or whatever data you'd like. Now, every time someone mentions "word", that sticker will be sent as a reply.
   Now, anyone saying "hello" will be replied to with "Hello there! How are you?".
 #Disable
-modname_disable: Command Disabling
+modname_disable: Disabling
 disable_success: Disabled the use of `{}`
 disable_err_undisableable: That command can't be disabled
 disable_err_no_cmd: Pass a command as an argument.
@@ -394,7 +394,7 @@ language_not_supported: "{} is not supported yet!"
 language_code_not_valid: That's not a valid lanuage code. Use an internationally accepted ISO code!
 language_current_locale: "Current locale for this chat is: *{}*"
 language_select_language: "*Select language* \n"
-language_user_language: "User language: `{}`\n\nHelp us bring more languages to the bot by contributing to the project in [Crowdin](https://crowdin.com/project/haruka)!"
+language_user_language: "User language: `{}`\n\nHelp us bring more languages to the bot by contributing to the project in [Crowdin](https://translate.harukaaya.me/HarukaAya)!"
 language_chat_language: "\nConnected chat language: `{}`"
 language_sel_user_lang: "*\n\nSelect a new user language:*"
 #Locks
@@ -411,25 +411,24 @@ locks_lock_bots_kick: Only admins are allowed to add bots to this chat! Kicked!
 locks_list_empty: There are no current locks in *{}*.
 locks_list: |
   These are the locks in *{}*:
-   - sticker = `{}`
-   - audio = `{}`
-   - voice = `{}`
-   - document = `{}`
-   - video = `{}`
-   - videonote = `{}`
-   - contact = `{}`
-   - photo = `{}`
-   - gif = `{}`
-   - url = `{}`
-   - bots = `{}`
-   - forward = `{}`
-   - game = `{}`
-   - location = `{}`
-   - messages = `{}`
-   - media = `{}`
-   - other = `{}`
-   - previews = `{}`
-   - all = `{}`
+   - `sticker` = *{}*
+   - `audio` = *{}*
+   - `voice` = *{}*
+   - `document` = *{}*
+   - `video` = *{}*
+   - `videonote` = *{}*
+   - `contact` = *{}*
+   - `photo` = *{}*
+   - `gif` = *{}*
+   - `url` = *{}*
+   - `bots` = *{}*
+   - `forward` = *{}*
+   - `game` = *{}*
+   - `location` = *{}*
+   - `messages` = *{}*
+   - `media` = *{}*
+   - `other` = *{}*
+   - `all` = *{}*
 locks_help: |
   Do stickers annoy you? or you want to avoid people sharing links? or pictures? You're in the right place!\n
   The locks module allows you to lock away some common items in the telegram world; the bot will automatically delete them!\n
@@ -463,7 +462,7 @@ log_channel_help: |
   - sending /setlog in the channel
   - forwarding the /setlog to the group
 #Memes and etc.
-modname_memes: Memes and etc.
+modname_memes: Memes
 memes_no_message: I need a message to meme.
 memes_deepfry_nothing: What am I supposed to do with this?!
 memes_shout_notext: Where is text?
@@ -657,11 +656,11 @@ misc_info_first: "\nFirst Name: {}"
 misc_info_name: "\nLast Name: {}"
 misc_info_username: "\nUsername: @{}"
 misc_info_user_link: "\nUser link: {}\n"
-misc_info_is_owner: "\n\nThis guy is my owner, I can't do anything against him!"
-misc_info_is_original_owner: "\nThis person is my original creator, though he abandoned my sister Marie already :("
-misc_info_is_sudo: "\nThis person is one of my sudo users! He'll be helping you if you need support about bot."
-misc_info_is_support: "\nThis person is one of my support users! He can gban those spammers and bad guys."
-misc_info_is_whitelisted: "\nThis person is a whitelisted user, one rarely gets this role, you can't ban or kick him."
+misc_info_is_owner: "\nThis person is my owner! They have total power over me."
+misc_info_is_original_owner: "\nThis person is my creator, beginning of me, though he abandoned my original, sister Marie, already :("
+misc_info_is_sudo: "\nThis person is one of my sudo users!"
+misc_info_is_support: "\nThis person is one of my support users!"
+misc_info_is_whitelisted: "\nThis person is one of my whitelisted user, one rarely gets this role, you can't ban or kick him."
 misc_gdpr: Deleting identifiable data...
 misc_md_list: |
   Markdown is a very powerful formatting tool supported by telegram. Haruka Aya has some enhancements, to make sure that \
@@ -687,6 +686,16 @@ misc_paste_404: Failed to reach dogbin
 misc_paste_success: "Shortened URL: {}/{}\nYou can view stats, etc. [here]({}/v/{})"
 misc_get_pasted_invalid: Please supply a dogbin url!
 misc_get_pasted_unknown: Unknown error occured
+misc_covid_error: An error have occured!, Are you sure the country name is correct?
+misc_covid_total_tests: "*Total Tests*: {}"
+misc_covid: |
+  *COVID-19 Statistics for {}*\n
+  *Confirmed Cases*: {} _(+{})_
+  *Active Cases*: {}
+  *Critical Cases*: {}
+  *Deaths*: {} _(+{})_
+  *Recovered*: {}
+  *Total tests*: {}
 misc_help: |
   - /id: get the current group id. If used by replying to a message, gets that user's id.
   - /info: get information about a user.
@@ -702,7 +711,10 @@ misc_help: |
   - /ud: Type the word or expression you want to search. For example /ud Gay
   - /removebotkeyboard: Got a nasty bot keyboard stuck in your group?
   - /exec <language> <code> [/stdin <stdin>]: Execute a code in a specified language. Send an empty command to get the supported languages.
-  - /wiki <keywords>: Get wikipedia articles just using this bot!
+  - /wiki <keywords>: Get wikipedia articles just using this bot!\n
+  *Special | COVID-19*
+  - /covid: Powered by Worldometers, Give stats about overall stats of COVID-19.
+  - /covid <country name>: Powered by Worldometers, Give stats about COVID-19.
 #Purge
 modname_msg_deleting: Purges
 purge_msg_cant_del_too_old: Cannot delete all messages. The messages may be too old, I might not have delete rights, or this might not be a supergroup.
@@ -721,13 +733,14 @@ mute_invalid: "You'll need to either give me a username to mute, or reply to som
 mute_not_myself: "I'm not muting myself!"
 mute_not_sudo: "No! I'm not muting bot sudoers! That would be a pretty dumb idea."
 mute_not_m_admin: "No! I'm not muting chat administrator! That would be a pretty dumb idea."
-mute_success: "{} is muted in {}!"
+mute_success: "User {} is muted in {}!"
 mute_already_mute: "This user is already muted in {}!"
 mute_not_in_chat: "This user isn't in the {}!"
 unmute_invalid: "You'll need to either give me a username to unmute, or reply to someone to be unmuted."
 unmute_not_muted: "This user already has the right to speak in {}."
 unmute_success: "Yep, {} can start talking again in {}!"
 unmute_not_in_chat: "This user isn't even in the chat, unmuting them won't make them talk more than they already do."
+unmute_is_an_admin: "Unmuting an admin is a trend now? No, That's pretty dumb."
 mute_not_refer: "You don't seem to be referring to a user."
 mute_not_existed: "I can't seem to find this user"
 mute_is_admin: "I really wish I could mute admins..."
@@ -738,7 +751,7 @@ mute_cant_mute: "Well damn, I can't mute that user."
 restrict_invalid: "You'll need to either give me a username to restrict, or reply to someone to be restricted."
 restrict_is_bot: "I'm not restricting myself!"
 restrict_is_admin: "Afraid I can't restrict admins!"
-restrict_success: "{} is restricted from sending media in {}!"
+restrict_success: "User {} is restricted from sending media in {}!"
 restrict_already_restricted: "This user is already restricted in {}!"
 unrestrict_invalid: "You'll need to either give me a username to unrestrict, or reply to someone to be unrestricted."
 unrestrict_not_restricted: "This user already has the rights to send anything in {}."
@@ -801,18 +814,18 @@ reports_chat_on: "Turned on reporting! Admins who have turned on reports will be
 reports_chat_off: "Turned off reporting! No admins will be notified on /report or @admin."
 reports_pm_pref: "Your current report preference is: `{}`"
 reports_chat_pref: "This chat's current setting is: `{}`"
-reports_success: "{} reported the message to the admins."
+reports_success: "User {} reported the message to the admins."
 reports_pm_enable: "Enabled reporting in your pm!"
 reports_pm_disable: "Disabled reporting in your pm!"
-reports_help: |
-  " - /report <reason>: reply to a message to report it to admins.
-   - @admin: reply to a message to report it to admins.
+reporting_help: |
+  - /report <reason>: reply to a message to report it to admins.
+  - @admin: reply to a message to report it to admins.
   NOTE: neither of these will get triggered if used by admins
 
   *Admin only:*
-   - /reports <on/off>: change report setting, or view current status.
-     - If done in pm, toggles your status.
-     - If in chat, toggles that chat's status."
+  - /reports <on/off>: change report setting, or view current status.
+    - If done in pm, toggles your status.
+    - If in chat, toggles that chat's status.
 #Rules
 modname_rules: Rules
 rules_shortcut_not_setup_properly: "The rules shortcut for this chat hasn't been set properly! Ask admins to fix this."
@@ -821,6 +834,7 @@ rules_not_found: "The group admins haven't set any rules for this chat yet. This
 rules_button_click: "Click the button below to get this group's rules."
 rules: "Rules"
 rules_success: "Successfully set rules for this group."
+rules_clean_success: "Successfully cleared rules!"
 rules_help: |
   - /rules: get the rules for this chat.
 
@@ -885,18 +899,6 @@ url_blacklist_remove_success_3: "Removed <code>{}</code> domains from the blackl
 url_blacklist_remove_invalid_3: "Tell me which domains you would like to remove from the blacklist."
 url_blacklist_current: "Current <b>blacklisted</b> domains:\n"
 url_blacklist_no_existed: "There are no blacklisted domains here!"
-urlblacklist_help: |
-  Domain blacklisting is used to stop certain domains from being mentioned in a group, Any time an url on that domain is mentioned, /
-  the message will immediately be deleted.
-
-  *NOTE:* domain blacklisting do not affect group admins.
-
-  - /geturl: View the current blacklisted urls
-
-  *Admin only:*
-
-  - /addurl <urls>: Add a domain to the blacklist. The bot will automatically parse the url.
-  - /delurl <urls>: Remove urls from the blacklist
 #Greetings
 modname_welcome: Greetings
 welcome_added_to_grp: Thanks for adding me into your group! Don't forget to checkout our news channel!
@@ -992,12 +994,12 @@ welcome_help: |
 users_seen: "I've seen them in <code>{}</code> chats in total."
 users_seen_is_bot: "I've seen them in... Wow. Are they stalking me? They're in all the same places I am... oh. It's me."
 #Userinfo
-modname_userinfo: Bios and Abouts
-userinfo_about_not_set_they: "{} hasn't set an info message about themselves yet!"
+modname_userinfo: Bios/Abouts
+userinfo_about_not_set_they: "User {} hasn't set an info message about themselves yet!"
 userinfo_about_not_set_you: You haven't set an info message about yourself yet!
 userinfo_about_set_success: Updated your info!
 userinfo_about_too_long: Your info needs to be under {} characters! You have {}.
-userinfo_bio_none_they: "{} doesn't have any bio set."
+userinfo_bio_none_they: "User {} doesn't have any bio set."
 userinfo_bio_none_you: No one has set a bio for you!
 userinfo_bio_you_cant_set: Ha, you can't set your own bio! You're at the mercy of others here...
 userinfo_bio_bot_sudo_only: Erm... yeah, I only trust sudo users to set my bio.
@@ -1081,7 +1083,7 @@ warns_strength_off_log_channel: |
   Has disabled strong warns. Users will only be kicked.
 warns_btn_remove_warn: Remove warn
 warns_btn_rules: Rules
-warns_user_warned: "{} <b>has been warned!</b>\nThey have {}/{} warnings."
+warns_user_warned: "User {} <b>has been warned!</b>\nThey have {}/{} warnings."
 warns_latest_warn_reason: \nThe latest warning was because:\n<code>{}</code>
 warns_remove_admin_only: You are not authorized to remove this warn! Only administrators may remove warns.
 warns_remove_success: Warn removed by {}.
@@ -1126,7 +1128,7 @@ helpers_bot_cant_pin: I can't pin messages here! Make sure I'm admin and can pin
 helpers_bot_cant_pro_demote: I can't promote/demote people here! Make sure I'm admin and can appoint new admins.
 helpers_bot_cant_restrict: I can't restrict people here! Make sure I'm admin and can appoint new admins.
 helpers_bot_not_admin: I'm not an admin!
-helpers_user_not_admin: Who dis non-admin telling me what to do?
+helpers_user_not_admin: You must be this chat administrator to perform this action!
 #extraction
 helpers_user_not_in_db: |
   I don't have that user in my user database.
