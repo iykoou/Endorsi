@@ -11,19 +11,23 @@ cmd_multitrigger: "\n\nAll commands can be used with the following: `/` `!`"
 here_is_help: Here is some help for the *{}* module:\n\n{}
 help_not_found: Help string for <code>{}</code> not found!
 help_pm_only: Contact me in PM to get the list of possible commands.
-btn_help: '❔ Help'
+btn_help: 'Help'
 btn_go_back: Back
 main_start_group: Hey there! I'm alive :3
 
 main_start_pm: |
-  Hey there! My name is Endorsi Zahard - I'm here to be your wife and help you manage your groups!
-  Click Help button to find out more about how to use me to my full 
+  Hey there! My name is Endorsi Zahard - I'm here t be your wife and you manage your groups!
+  Click Help button to find out more about how to use me to my full potential.
+
+  Join [this project channel](https://t.me/KatarinaUpdates) to see more projects from my master.
+
+  Follow [this github account](https://github.com/sagirisayang) if you want to see some projects source codes.
 
   Made with love by @katarina_claes\n\nWant to add me to your group? [Click here!](t.me/EndorsiBot?startgroup=true)
 
-main_start_btn_support: '📢 Support'
+main_start_btn_support: 'Developer'
 main_start_btn_ctrlpnl: '🛠 Control panel'
-main_start_btn_lang: '📒 Github'
+main_start_btn_lang: 'Updates'
 #Common
 common_err_no_admin: You aren't an admin!
 common_err_no_user: You don't seem to be referring to a user.
