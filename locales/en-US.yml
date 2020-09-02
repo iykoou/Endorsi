@@ -1,6 +1,6 @@
 #Main
 send-help: |
-  Hey! My name is *{}*. I am a group management bot, here to help you get around and keep the order in your groups!
+  Hey! My name is *{}*. I am your wife and your group management bot, here to help you get around and keep the order in your groups!
   I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.\n
   *Helpful commands:*
   - /start: Starts me! You've probably already used this.
@@ -16,18 +16,14 @@ btn_go_back: Back
 main_start_group: Hey there! I'm alive :3
 
 main_start_pm: |
-  Hey there! My name is Haruka Aya - I'm here to help you manage your groups!
-  Click Help button to find out more about how to use me to my full potential.
+  Hey there! My name is Endorsi Zahard - I'm here to be your wife and help you manage your groups!
+  Click Help button to find out more about how to use me to my full 
 
-  Join [the bot support group](https://t.me/HarukaAyaGroup) ( @HarukaAyaGroup ) if you need any bot support or help.
+  Made with love by @katarina_claes\n\nWant to add me to your group? [Click here!](t.me/EndorsiBot?startgroup=true)
 
-  Follow [Haruka Aya](https://t.me/HarukaAya) ( @HarukaAya ) if you want to keep up with the bot news, bot updates and bot downtime!
-
-  Made with love by @RealAkito\n\nWant to add me to your group? [Click here!](t.me/HarukaAyaBot?startgroup=true)
-
-main_start_btn_support: '📢 Support Group'
+main_start_btn_support: '📢 Support'
 main_start_btn_ctrlpnl: '🛠 Control panel'
-main_start_btn_lang: '🇺🇸 Language'
+main_start_btn_lang: '📒 Github'
 #Common
 common_err_no_admin: You aren't an admin!
 common_err_no_user: You don't seem to be referring to a user.
