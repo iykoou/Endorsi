@@ -135,11 +135,11 @@ def send_start(bot, update):
 
     keyboard = [[
         InlineKeyboardButton(text=tld(chat.id, 'main_start_btn_support'),
-                             url="https://t.me/katarina-claes")
+                             url="https://t.me/katarina_claes")
     ]]
     keyboard += [[
         InlineKeyboardButton(text=tld(chat.id, 'main_start_btn_lang'),
-                             url="https://github.com/sagirisayang"),
+                             url="https://t.me/KatarinaUpdates"),
         InlineKeyboardButton(text=tld(chat.id, 'btn_help'),
                              callback_data="help_back")
     ]]
